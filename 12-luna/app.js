@@ -6,19 +6,18 @@ function checkLuhn(cardNumber) {
   const num = checkCardNumber(cardNumber);
   if (!num) return false;
 
-  let sum = 0;
+  const arrayFromNum = num.split("");
 
-  for (let index in num) {
-
-    if ((+index + 1) % 2 === 0) {
-      sum += Number(num[index]);
-
+  const sum = arrayFromNum.reduce((acc, operation, i) => {
+    if ((i + 1) % 2 === 0) {
+      acc += Number(operation);
     } else {
-      let n = Number(num[index]) * 2;
+      let n = Number(operation) * 2;
       n = n > 9 ? n - 9 : n;
-      sum += n;
+      acc += n;
     }
-  }
+    return acc;
+  }, 0);
 
   return sum % 10 === 0 && true;
 }
