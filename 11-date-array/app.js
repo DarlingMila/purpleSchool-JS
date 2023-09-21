@@ -11,6 +11,8 @@ const array = [
   "03/as/2013",
   "03-as-2013",
   "03-03-erhn",
+  "30-11-1999",
+  "31-09-1895"
 ];
 
 function filterAndFormatDates(arr) {
@@ -29,7 +31,7 @@ function filterAndFormatDates(arr) {
       [month, day, year] = date.split("/");
     }
 
-    const isOk = checkDate(day, month, year);
+    const isOk = checkDate(+day, +month, +year);
     if (isOk) newArray.push([day, month, year].join("-"));
   });
 
@@ -45,10 +47,12 @@ function checkDate(day, month, year) {
     case month === "02" && year % 4 === 0:
       dayIsCorrect = day <= 29;
       break;
+
     case month === "02":
       dayIsCorrect = day <= 28;
       break;
-    case month % 2 === 0:
+
+    case [4, 6, 9, 11].includes(month):
       dayIsCorrect = day <= 30;
       break;
   }
