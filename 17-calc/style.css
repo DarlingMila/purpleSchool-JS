@@ -1,0 +1,121 @@
+body {
+  --color-primary: #dbdbdb;
+  --color-secondary: rgb(145,168,137);
+  --font-family: 'DM Sans', sans-serif;
+}
+
+.main {
+  width: 600px;
+
+  margin: 0 auto;
+  padding: 0;
+
+  transform: translate(0%, 30vh);
+}
+
+.calc {
+  border: 2px solid var(--color-secondary);
+  border-radius: 15px;
+
+  margin: 0;
+  padding: 40px 30px;
+}
+
+.calc__header {
+  display: flex;
+  justify-content: space-between;
+
+  margin: 0px;
+  padding: 0;
+}
+
+.input {
+  width: 80px;
+
+  padding: 5px 10px;
+
+  border: none;
+  border-bottom: 2px solid var(--color-primary);
+  outline: none;
+
+  font-family: var(--font-family);
+  font-size: 30px;
+  text-align: center;
+
+  transition: all ease-in 0.2s;
+}
+
+.input:focus {
+  border-bottom-color: var(--color-secondary);
+}
+
+.sign,
+.equalBtn,
+.operationBtn {
+  width: 50px;
+  height: 50px;
+
+  margin: 0 20px;
+  padding: 5px;
+
+  border: 2px solid var(--color-secondary);;
+  border-radius: 15px;
+
+  background-color: var(--color-secondary);
+  color: white;
+
+  font-family: var(--font-family);
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: text-top;
+}
+
+.sign {
+  cursor: default;
+}
+
+.equalBtn,
+.operationBtn {
+  transition: all ease-in 0.2s;
+  cursor: pointer;
+}
+
+.operationBtn:first-child {
+  margin-left: 0;
+}
+
+.operationBtn:last-child {
+  width: 120px;
+  margin-left: 40px;
+  margin-right: 0;
+}
+
+.equalBtn:hover,
+.operationBtn:hover {
+  background-color:  white;
+  border-color: var(--color-secondary);
+  color: var(--color-secondary);
+}
+
+.output {
+  width: 100px;
+
+  padding: 5px 10px;
+
+  border: none;
+  border-bottom: 2px solid var(--color-secondary);
+  outline: none;
+
+  font-family: var(--font-family);
+  font-size: 30px;
+  text-align: end;
+}
+
+.calc__operationsWrapper {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 50px;
+  padding: 0;
+}
