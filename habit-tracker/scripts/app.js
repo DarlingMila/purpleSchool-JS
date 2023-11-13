@@ -187,11 +187,14 @@ function deleteDay(index) {
 }
 
 /* working with habits */
-function setIcon(event, icon) {
-  page.popup.iconField.value = icon;
+function setIcon(event) {
+  const target = event.target.closest("button");
+  page.popup.iconField.value = target.dataset.icon;
+
   const activeIcon = document.querySelector(".icon_active");
   activeIcon.classList.remove("icon_active");
-  event.target.closest("button").classList.add("icon_active");
+
+  target.classList.add("icon_active");
 }
 
 function togglePopup() {
@@ -308,6 +311,6 @@ page.popup.closePopupBtn.addEventListener("click", togglePopup);
 page.content.addDayForm.addEventListener("submit", addDays);
 page.popup.addHabitForm.addEventListener("submit", addHabbit);
 
-page.popup.iconBtn.sport.addEventListener("click", () => setIcon(event, "sport"));
-page.popup.iconBtn.water.addEventListener("click", () => setIcon(event, "water"));
-page.popup.iconBtn.food.addEventListener("click", () => setIcon(event, "food"));
+page.popup.iconBtn.sport.addEventListener("click", setIcon);
+page.popup.iconBtn.water.addEventListener("click", setIcon);
+page.popup.iconBtn.food.addEventListener("click", setIcon);
